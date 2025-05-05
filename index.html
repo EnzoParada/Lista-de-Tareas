@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Tareas</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="list roundBorder">
+        <div class="date">
+            <div class="dateLeft">
+                <div id="dateNumber"></div>
+                <div>
+                    <div id="dateMonth"></div>
+                    <div id="dateYear"></div>
+                </div>
+            </div>
+            <div id="dateText"></div>
+        </div>
+        <form onsubmit="addNewTask(event)"">
+            <input type="text" name="taskText" autocomplete="off" placeholder="Nueva Tarea" class="roundBorder">
+            <button type="submit" class="addTaskButtom">+</button>
+            <button type="button" class="orderButtom roundBorder" onclick="renderOrderedTask()">Ordenar</button>
+        </form>
+        <div id="tasksContainer"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
