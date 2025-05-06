@@ -115,16 +115,21 @@ const deleteAllTasks = () => {
 const order = () => {
     const done = [];
     const toDo = [];
-    tasksContainer.childNodes.forEach(el => {
-        el.classList.contains('done') ? done.push(el) : toDo.push(el);
+    tasksContainer.querySelectorAll('.task').forEach(task=> {
+        task.classList.contains('done') ? done.push(task) : toDo.push(task);
     });
     return [...toDo, ...done];
 };
 
 // Renderizar tareas ordenadas
-const renderOrderedTask = () => {
-    order().forEach(el => tasksContainer.appendChild(el));
-    saveTasks();
+const renderOrderedTasks = () => {
+    const orderedTasks = order();
+    tasksContainer.innerHTML='';
+
+    orderedTasks.forEach(task => {
+        tasksContainer.appendChild(task);
+    });
+     saveTasks();   
 };
 
 // Inicializar aplicación
@@ -137,8 +142,13 @@ document.addEventListener('DOMContentLoaded', () => {
         taskForm.addEventListener('submit', addNewTask);
     }
     // Asignar evento al botón "Eliminar todas"
+    const orderButton = document.querySelector('.orderButton');
+    if (orderButton) {
+        orderButton.addEventListener('click', renderOrderedTasks);
+    }
+
     const deleteAllButton = document.querySelector('.deleteAllButton');
-    if (deleteAllButton) {
-        deleteAllButton.addEventListener('click', deleteAllTasks);
+    if(deleteAllButton){
+        deleteAllButton.addEventListener('click',deleteAllTasks);
     }
 });
