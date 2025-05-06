@@ -1,0 +1,206 @@
+:root {
+    /* Colores principales */
+    --primary-color: #4CAF50;
+    --primary-hover: #43A047;
+    --danger-color: #F44336;
+    --danger-hover: #E53935;
+    --warning-color: #FFC107;
+    
+    /* Colores de texto */
+    --text-primary: #212121;
+    --text-secondary: #757575;
+    --text-light: #FFFFFF;
+    
+    /* Fondos */
+    --bg-body: #F5F5F5;
+    --bg-container: #FFFFFF;
+    --bg-task: #F9F9F9;
+    --bg-task-hover: #F0F0F0;
+    --bg-button: #F0F0F0;
+    --bg-button-hover: #E0E0E0;
+    
+    /* Bordes */
+    --border-radius: 8px;
+    --border-color: #DDDDDD;
+    
+    /* Sombras */
+    --shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos generales */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--bg-body);
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+    color: var(--text-primary);
+}
+
+.list {
+    background-color: var(--bg-container);
+    width: 100%;
+    max-width: 500px;
+    border-radius: 15px;
+    box-shadow: var(--shadow);
+    padding: 20px;
+}
+
+.roundBorder {
+    border-radius: var(--border-radius);
+}
+
+/* Sección de fecha */
+.date {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.dateLeft {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+#dateNumber {
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+
+#dateText {
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-transform: capitalize;
+}
+
+#dateMonth {
+    font-weight: bold;
+    text-transform: capitalize;
+}
+
+#dateYear {
+    color: var(--text-secondary);
+}
+
+/* Formulario */
+form {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+form input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid var(--border-color);
+    font-size: 1rem;
+}
+
+.addTaskButton {
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    border: none;
+    width: 40px;
+    font-size: 1.2rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.addTaskButton:hover {
+    background-color: var(--primary-hover);
+}
+
+/* Botones de acción */
+.actions {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.orderButton, .deleteAllButton {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    background-color: var(--bg-button);
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background-color 0.3s;
+}
+
+.orderButton:hover, .deleteAllButton:hover {
+    background-color: var(--bg-button-hover);
+}
+
+.deleteAllButton {
+    background-color: #FFEBEE;
+    color: var(--danger-color);
+}
+
+/* Lista de tareas */
+#tasksContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.task {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 15px;
+    background-color: var(--bg-task);
+    border-left: 4px solid var(--primary-color);
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.task:hover {
+    background-color: var(--bg-task-hover);
+}
+
+.task.done {
+    border-left-color: var(--text-secondary);
+}
+
+.task.done span {
+    text-decoration: line-through;
+    color: var(--text-secondary);
+}
+
+.delete-btn {
+    background: none;
+    border: none;
+    color: var(--danger-color);
+    font-size: 1.3rem;
+    cursor: pointer;
+    padding: 0 5px;
+    margin-left: 10px;
+    transition: color 0.3s;
+}
+
+.delete-btn:hover {
+    color: var(--danger-hover);
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+    body {
+        padding: 10px;
+    }
+    
+    .list {
+        padding: 15px;
+    }
+    
+    #dateNumber {
+        font-size: 2rem;
+    }
+    
+    #dateText {
+        font-size: 1.2rem;
+    }
+}
